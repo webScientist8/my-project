@@ -1,28 +1,39 @@
 <template>
-  <div>
-    <span class="mian">hello world</span>
-    <van-button type="primary" @click="jump">按钮</van-button>
+  <div class="home">
+    <searchBar
+      disabled
+      @onClick="onSearchBarkClick"
+    />
+    <HomeCard/>
+    <HomeBanner
+      img="http://www.youbaobao.xyz/book/res/bg.jpg"
+      title="mpvue2.0实战多端小程序课程上线啦"
+      subTitle="立即体验"
+      @onClick="onBannerClick"
+    />
   </div>
 </template>
 
 <script>
-  import { post } from '../../utils/request'
-
+  import SearchBar from '../../components/home/SearchBar'
+  import HomeCard from '../../components/home/HomeCard'
+  import HomeBanner from '../../components/home/HomeBanner'
   export default {
+    components: {
+      HomeBanner,
+      HomeCard,
+      SearchBar
+    },
     methods: {
-      jump() {
-        post('https://www.baidu.com').then(response => {
-          console.log('handleResponse....')
-        })
+      // 搜索跳转页
+      onSearchBarkClick() {
       }
     }
   }
 </script>
 
 <style lang="stylus" scoped>
-  .mian {
-    color: red;
-    font-size: 20px;
-    font-weight: bold;
+  .book-home {
+    margin-top: 23px;
   }
 </style>
